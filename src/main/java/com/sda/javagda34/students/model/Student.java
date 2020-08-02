@@ -13,7 +13,7 @@ import java.util.Set;
 @Builder
 @EqualsAndHashCode
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 // POJO - Plain Old Java Object
 //          - prywatne pola
 //          - gettery settery
@@ -23,6 +23,10 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
+
+    public Student() {
+        this.firstName = "Marian";
+    }
 
     private String indexNumber; //unikalny
     private String firstName;
