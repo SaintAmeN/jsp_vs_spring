@@ -6,11 +6,23 @@
 </head>
 <body>
 
+<form th:action="@{/multable}" method="get">
+    <div>
+        <label for="x">X:</label>
+        <input id="x" name="x" type="number" min="0">
+    </div>
+    <div>
+        <label for="y">Y:</label>
+        <input id="y" name="y" type="number" min="0">
+    </div>
+    <input type="submit">
+</form>
+
 <hr>
 <table>
 <!--    localhost:8080/multable?x=100&y=200     -->
-    <tr th:each="xit : ${#numbers.sequence(0, rozmiar_x)}">
-        <td th:each="yit : ${#numbers.sequence(0, rozmiar_y)}">
+    <tr th:each="xit : ${#numbers.sequence(1, rozmiar_x)}">
+        <td th:each="yit : ${#numbers.sequence(1, rozmiar_y)}">
             <span th:text="${xit*yit}"/>
         </td>
     </tr>
