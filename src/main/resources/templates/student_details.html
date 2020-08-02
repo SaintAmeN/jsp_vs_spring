@@ -10,7 +10,7 @@
 <h1>Student Details</h1>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 container" th:object="${student}">
+        <div class="col-md-5 container" th:object="${student}">
             <div class="row">
                 <div class="col-6">
                     <label for="id">Identifier</label>
@@ -60,26 +60,26 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 container">
+        <div class="col-md-7 container">
             <h2>Grade list:</h2>
             <div class="row rowheader">
-                <div class="col-2">Id</div>
+                <div class="col-1">Id</div>
                 <div class="col-2">Subject</div>
-                <div class="col-2">Value</div>
-                <div class="col-2">Date added</div>
+                <div class="col-1">Value</div>
+                <div class="col-3">Date added</div>
                 <div class="col-4">Actions</div>
             </div>
             <div class="row rowelement" th:each="grade : ${student.gradeSet}">
-                <div class="col-2" th:text="${grade.id}"></div>
+                <div class="col-1" th:text="${grade.id}"></div>
                 <div class="col-2" th:text="${grade.subject}"></div>
-                <div class="col-2" th:text="${grade.value}"></div>
-                <div class="col-2" th:text="${grade.dateAdded}"></div>
+                <div class="col-1" th:text="${grade.value}"></div>
+                <div class="col-3" th:text="${grade.dateAdded}"></div>
                 <div class="col-4">
                     <a th:href="@{/grade/edit(id=${grade.id})}">
-                        <button type="button" class="col-md-5 btn btn-secondary">Edit</button>
+                        <button type="button" class="col-5 btn btn-secondary">Edit</button>
                     </a>
                     <a th:href="@{/grade/delete(id=${grade.id}, studentId=${student.id})}">
-                        <button type="button" class="col-md-5 btn btn-danger">Delete</button>
+                        <button type="button" class="col-6 btn btn-danger">Delete</button>
                     </a>
                 </div>
             </div>

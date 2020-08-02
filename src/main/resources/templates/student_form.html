@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Form</title>
+    <div th:replace="fragments :: styles"/>
 </head>
 <body>
-
-<form th:action="@{/student}" method="post" th:object="${student}">
+<div th:replace="fragments :: navigator"/>
+<form class="container" th:action="@{/student}" method="post" th:object="${student}">
     <input type="hidden" hidden readonly th:field="*{id}" th:type="text">
-    <div>
-        <label for="fName">First name:</label>
-        <input id="fName" type="text" th:field="*{firstName}"/>
+    <div class="row">
+        <label class="col-6" for="fName">First name:</label>
+        <input class="col-6 form-control" id="fName" type="text" th:field="*{firstName}"/>
     </div>
-    <div>
-        <label for="lName">Last name:</label>
-        <input id="lName" type="text" th:field="*{lastName}"/>
+    <div class="row">
+        <label class="col-6" for="lName">Last name:</label>
+        <input class="col-6 form-control" id="lName" type="text" th:field="*{lastName}"/>
     </div>
-    <div>
-        <label for="indexNumber">Index number:</label>
-        <input id="indexNumber" type="text" th:field="*{indexNumber}"/>
+    <div class="row">
+        <label class="col-6" for="indexNumber">Index number:</label>
+        <input class="col-6 form-control" id="indexNumber" type="text" th:field="*{indexNumber}"/>
     </div>
-    <div>
-        <label for="active">Is active:</label>
-        <input id="active" type="checkbox" th:field="*{active}"/>
+    <div class="row">
+        <label class="col-6" for="active">Is active:</label>
+        <input class="col-6 form-control" id="active" type="checkbox" th:field="*{active}"/>
     </div>
-    <div>
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" th:field="*{gender}">
+    <div class="row">
+        <label class="col-6" for="gender">Gender:</label>
+        <select class="col-6 form-control" id="gender" name="gender" th:field="*{gender}">
             <option name="FEMALE" value="FEMALE">FEMALE</option>
             <option name="MALE" value="MALE">MALE</option>
         </select>
     </div>
-    <input type="submit"/>
+    <input type="submit" class="btn btn-primary col-12 row"/>
 </form>
+<div th:replace="fragments :: footers"/>
 </body>
 </html>
