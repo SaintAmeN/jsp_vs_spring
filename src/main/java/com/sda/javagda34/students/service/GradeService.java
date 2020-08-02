@@ -13,4 +13,8 @@ public class GradeService {
     public void update(Grade grade) {
         gradeRepository.save(grade);
     }
+
+    public void deleteById(Long id) {
+        gradeRepository.deleteById(id);
+    }
 }

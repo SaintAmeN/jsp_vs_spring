@@ -75,7 +75,12 @@
                 <div class="col-2" th:text="${grade.value}"></div>
                 <div class="col-2" th:text="${grade.dateAdded}"></div>
                 <div class="col-4">
-
+                    <a th:href="@{/grade/edit(id=${grade.id})}">
+                        <button type="button" class="col-md-5 btn btn-secondary">Edit</button>
+                    </a>
+                    <a th:href="@{/grade/delete(id=${grade.id}, studentId=${student.id})}">
+                        <button type="button" class="col-md-5 btn btn-danger">Delete</button>
+                    </a>
                 </div>
             </div>
             <div class="row col-12">

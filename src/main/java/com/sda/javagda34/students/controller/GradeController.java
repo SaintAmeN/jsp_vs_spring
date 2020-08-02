@@ -49,4 +49,12 @@ public class GradeController {
             return "redirect:/student/list";
         }
     }
+
+    @GetMapping("/delete")
+    public String deleteGrade(@RequestParam(name = "id") Long id,
+                              @RequestParam(name = "studentId") Long studentId) {
+        gradeService.deleteById(id);
+
+        return "redirect:/student/details?id=" + studentId;
+    }
 }

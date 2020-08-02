@@ -1,11 +1,9 @@
 package com.sda.javagda34.students.controller;
 
+import com.sda.javagda34.students.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,4 +32,9 @@ public class IndexController {
 
         return "tabliczka_mnozenia";
     }
+
+//    @PutMapping("/update/{id}")
+//    public void update(@PathVariable(name = "id") Long id, @RequestBody Student student){
+//
+//    }
 }

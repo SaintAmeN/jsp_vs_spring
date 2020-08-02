@@ -63,4 +63,11 @@ public class StudentController {
             return "redirect:/student/list";
         }
     }
+
+    @GetMapping("/delete")
+    public String deleteStudent(@RequestParam(name = "id") Long id){
+        studentService.deleteById(id);
+
+        return "redirect:/student/list";
+    }
 }
