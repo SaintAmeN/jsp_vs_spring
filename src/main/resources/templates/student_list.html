@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+    <div th:replace="fragments :: styles"/>
+</head>
+<body>
+<div th:replace="fragments :: navigator"/>
+<h1>Student List</h1>
+<div class="container">
+    <div class="row rowheader">
+        <div class="col-2">Id</div>
+        <div class="col-3">Name</div>
+        <div class="col-3">Gender</div>
+        <div class="col-4">Actions</div>
+    </div>
+    <div class="row rowelement" th:each="student : ${studentList}">
+        <div class="col-2" th:text="${student.id}"></div>
+        <div class="col-3" th:text="${student.firstName + ' ' + student.lastName}"></div>
+        <div class="col-3" th:text="${student.gender}"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div th:replace="fragments :: footers"/>
+</body>
+</html>

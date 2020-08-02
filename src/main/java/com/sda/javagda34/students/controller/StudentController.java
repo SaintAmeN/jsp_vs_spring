@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(path = "/student")
 @RequiredArgsConstructor
@@ -34,5 +36,14 @@ public class StudentController {
         System.out.println("Dane: " + student);
         studentService.update(student);
         return "redirect:/student";
+    }
+
+    // localhost:8080/student/list
+    @GetMapping("/list")
+    public String listStudents(Model model) {
+        List<Student> studentList = studentService.findAll();
+        model.addAttribute("studentList", studentList);
+
+        return "student_list";
     }
 }

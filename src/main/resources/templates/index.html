@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Index Page</title>
+    <div th:replace="fragments :: styles"/>
 </head>
 <body>
+<div th:replace="fragments :: navigator"/>
 <h1>Hello World <span th:text="${imie}"/>!</h1>
 
+<div th:replace="fragments :: footers"/>
 </body>
 </html>

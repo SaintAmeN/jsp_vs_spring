@@ -6,6 +6,8 @@ import com.sda.javagda34.students.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class StudentService {
@@ -14,5 +16,9 @@ public class StudentService {
     public void update(Student student) {
         // zapis do bazy
         studentRepository.save(student);
+    }
+
+    public List<Student> findAll() {
+        return studentRepository.findAll();
     }
 }
