@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Form</title>
+    <div th:replace="fragments :: styles"/>
+</head>
+<body>
+<div th:replace="fragments :: navigator"/>
+<h1>Grade form</h1>
+<form class="container" th:action="@{/grade}" method="post" th:object="${grade}">
+    <div th:if="${studentId != null}">
+        <input type="hidden" th:value="${studentId}" name="studentId">
+    </div>
+    <div th:if="${studentId == null}" class="row">
+        <label for="student">Student:</label>
+        <select class="form-control" id="student" name="studentId">
+            <option th:each="st : ${allStudents}" th:value="${st.id}"
+                    th:text="${st.firstName + ' ' + st.lastName}"></option>
+        </select>
+    </div>
+
+    <div class="row">
+        <label for="value">Value:</label>
+        <input class="form-control" id="value" th:field="*{value}">
+    </div>
+    <div class="row">
+        <label for="subject">Subject:</label>
+        <select class="form-control" id="subject" th:field="*{subject}">
+            <option th:each="subj : ${allSubjects}" th:value="${subj}" th:text="${subj}"></option>
+        </select>
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-primary form-control">
+    </div>
+</form>
+<div th:replace="fragments :: footers"/>
+</body>
+</html>

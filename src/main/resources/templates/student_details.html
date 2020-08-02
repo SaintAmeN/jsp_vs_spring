@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <div th:replace="fragments :: styles"/>
+</head>
+<body>
+<div th:replace="fragments :: navigator"/>
+<h1>Student Details</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 container" th:object="${student}">
+            <div class="row">
+                <div class="col-6">
+                    <label for="id">Identifier</label>
+                </div>
+                <div class="col-6">
+                    <div id="id" th:text="*{id}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="firstName">First name:</label>
+                </div>
+                <div class="col-6">
+                    <div id="firstName" th:text="*{firstName}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="lastName">Last name:</label>
+                </div>
+                <div class="col-6">
+                    <div id="lastName" th:text="*{lastName}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="col-6">
+                    <div id="gender" th:text="*{gender}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="indexNum">Index number:</label>
+                </div>
+                <div class="col-6">
+                    <div id="indexNum" th:text="*{indexNumber}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="active">Is Active:</label>
+                </div>
+                <div class="col-6">
+                    <div id="active" th:text="*{active}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 container">
+            <h2>Grade list:</h2>
+            <div class="row rowheader">
+                <div class="col-2">Id</div>
+                <div class="col-2">Subject</div>
+                <div class="col-2">Value</div>
+                <div class="col-2">Date added</div>
+                <div class="col-4">Actions</div>
+            </div>
+            <div class="row rowelement" th:each="grade : ${student.gradeSet}">
+                <div class="col-2" th:text="${grade.id}"></div>
+                <div class="col-2" th:text="${grade.subject}"></div>
+                <div class="col-2" th:text="${grade.value}"></div>
+                <div class="col-2" th:text="${grade.dateAdded}"></div>
+                <div class="col-4">
+
+                </div>
+            </div>
+            <div class="row col-12">
+                <a th:href="@{/grade(studentId=${student.id})}" class="col-12">
+                    <button type="button" class="col-12 btn btn-primary">Add new grade</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments :: footers"/>
+</body>
+</html>

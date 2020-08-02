@@ -19,7 +19,17 @@
         <div class="col-2" th:text="${student.id}"></div>
         <div class="col-3" th:text="${student.firstName + ' ' + student.lastName}"></div>
         <div class="col-3" th:text="${student.gender}"></div>
-        <div class="col-4"></div>
+        <div class="col-4">
+            <a th:href="@{/student/details(id=${student.id})}">
+                <button type="button" class="col-md-3 btn btn-primary">Details</button>
+            </a>
+            <a th:href="@{/student/edit(id=${student.id})}">
+                <button type="button" class="col-md-3 btn btn-secondary">Edit</button>
+            </a>
+            <a th:href="@{/student/delete(id=${student.id})}">
+                <button type="button" class="col-md-3 btn btn-danger">Delete</button>
+            </a>
+        </div>
     </div>
 </div>
 <div th:replace="fragments :: footers"/>
