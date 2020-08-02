@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabliczka mnożenia</title>
+</head>
+<body>
+
+<hr>
+<table>
+<!--    localhost:8080/multable?x=100&y=200     -->
+    <tr th:each="xit : ${#numbers.sequence(0, rozmiar_x)}">
+        <td th:each="yit : ${#numbers.sequence(0, rozmiar_y)}">
+            <span th:text="${xit*yit}"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

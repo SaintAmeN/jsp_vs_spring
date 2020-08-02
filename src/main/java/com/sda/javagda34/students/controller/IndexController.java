@@ -23,4 +23,15 @@ public class IndexController {
 
         return "index"; // String zwrócony to nazwa pliku html w katalogu templates
     }
+
+    @GetMapping("/multable")
+    public String tabliczkaMnozenia(Model model,
+                                    @RequestParam(name = "x", required = false, defaultValue = "10") int rozmiarX,
+                                    @RequestParam(name = "y", required = false, defaultValue = "10") int rozmiarY) {
+
+        model.addAttribute("rozmiar_x", rozmiarX);
+        model.addAttribute("rozmiar_y", rozmiarY);
+
+        return "tabliczka_mnozenia";
+    }
 }
