@@ -64,6 +64,21 @@ public class StudentController {
         }
     }
 
+    // localhost:8080/student/details?id=1
+    @GetMapping("/edit")
+    public String getEditPage(Model model, @RequestParam(name = "id") Long id) {
+        Optional<Student> studentOptional = studentService.findById(id);
+        if (studentOptional.isPresent()) { // jeśli uda się znaleźć studenta, to wyświetlimy widok szczegółowy
+            Student student = studentOptional.get();
+            model.addAttribute("student", student);
+
+            return "student_form";
+        } else {
+            // nie uda się odnaleźć studenta to przekierowujemy z powrotem na listę
+            return "redirect:/student/list";
+        }
+    }
+
     @GetMapping("/delete")
     public String deleteStudent(@RequestParam(name = "id") Long id){
         studentService.deleteById(id);

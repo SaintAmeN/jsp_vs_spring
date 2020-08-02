@@ -7,6 +7,7 @@
 <body>
 
 <form th:action="@{/student}" method="post" th:object="${student}">
+    <input type="hidden" hidden readonly th:field="*{id}" th:type="text">
     <div>
         <label for="fName">First name:</label>
         <input id="fName" type="text" th:field="*{firstName}"/>
